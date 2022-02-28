@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <!-- Google Font and Icons -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&family=Raleway:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <!-- tailwindcss and cutom setup -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  
+
+  </head>
+  <body class="caret-pink-500 font-raleway">
+    <header>
+      <nav class="text-center bg-black text-white py-2">
+        <h1 class="text-xl font-bold">Phone Finder</h1>
+      </nav>
+      <form class="container mx-auto w-[90%] m-4 flex">
+        <input
+          id="search-text"
+          class="
+            w-[80%]
+            md:w-[400px]
+            focus:ring-2 focus:ring-purple-900
+            py-2
+            px-4
+            border-2
+            outline-none
+            rounded-lg
+            focus:outline-none
+          "
+          type="text"
+          placeholder="Enter your phone name"
+        />
+        <button
+          type="submit"
+          class="
+            flex
+            justify-center
+            text-white
+            items-center
+            w-[20%]
+            bg-blue-300
+            rounded-xl
+            ml-2
+            hover:bg-blue-400
+            md:w-[80px]
+          "
+        >
+          <span class="material-icons-outlined"> search </span>
+        </button>
+      </form>
+    </header>
+    <main>
+      <div class="container">
+        <div class="flex flex-col-reverse md:flex-col">
+          <div class="result w-[100%] md:w-[50%]"></div>
+          <div
+            class="details mx-auto w-[90%] shadow-md rounded md:w-6/12"
+          ></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
