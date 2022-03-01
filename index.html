@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="scroll-smooth" lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
@@ -11,22 +11,58 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&family=Raleway:wght@300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins&family=Raleway:wght@400&display=swap"
       rel="stylesheet"
     />
     <!-- tailwindcss and cutom setup -->
     <script src="https://cdn.tailwindcss.com"></script>
-  
-
+    <script>
+      module.exports = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              raleway: ['Raleway', 'sans-serif'],
+              poppins: ['"Poppins"', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body class="caret-pink-500 font-raleway">
+  <body class="caret-pink-500 font-[poppins] w-full h-screen">
+    <!-- Dark Mode Button  -->
+    <button
+      class="
+        fixed
+        top-2
+        right-2
+        bg-pink-500
+        hover:bg-pink-600
+        text-white
+        rounded-full
+        w-[30px]
+        h-[30px]
+        flex
+        justify-center
+        items-center
+        dark-btn
+      "
+      onclick="darkMode()"
+    >
+      <span class="material-icons-outlined"> nightlight </span>
+    </button>
+
+    <!-- Header Search Bar Area -->
     <header>
-      <nav class="text-center bg-black text-white py-2">
+      <nav class="text-center bg-[#203239] text-white py-2">
         <h1 class="text-xl font-bold">Phone Finder</h1>
       </nav>
       <form class="container mx-auto w-[90%] m-4 flex">
         <input
           id="search-text"
+          list="list"
+          autocomplete="off"
           class="
             w-[80%]
             md:w-[400px]
@@ -41,6 +77,17 @@
           type="text"
           placeholder="Enter your phone name"
         />
+
+        <!-- DataList for input field That use might be select them, if user do any error to write -->
+        <datalist id="list">
+          <option value="Samsung">Samsung</option>
+          <option value="Iphone"></option>
+          <option value="Oppo"></option>
+          <option value="Huawei"></option>
+          <option value="Phone"></option>
+          <option value="Watch"></option>
+        </datalist>
+
         <button
           type="submit"
           class="
@@ -49,10 +96,10 @@
             text-white
             items-center
             w-[20%]
-            bg-blue-300
+            bg-pink-500
             rounded-xl
             ml-2
-            hover:bg-blue-400
+            hover:bg-pink-600
             md:w-[80px]
           "
         >
@@ -61,16 +108,69 @@
       </form>
     </header>
     <main>
-      <div class="container">
-        <div class="flex flex-col-reverse md:flex-col">
+      <div class="container mx-auto">
+        <div class="flex flex-col-reverse md:flex-row">
           <div class="result w-[100%] md:w-[50%]"></div>
           <div
-            class="details mx-auto w-[90%] shadow-md rounded md:w-6/12"
+            class="details font-[raleway] mx-auto w-[90%] rounded md:w-6/12"
           ></div>
         </div>
       </div>
     </main>
 
+    <!-- Display Success Alert when user click the product details button to see -->
+    <div
+      class="
+        transition
+        duration-500
+        ease-in
+        fixed
+        bottom-[-9999px]
+        hidden
+        left-2
+        py-2
+        px-3
+        mx-auto
+        leading-normal
+        text-white
+        bg-green-600
+        rounded-full
+        w-[300px]
+        flex
+        justify-between
+        text-sm
+      "
+    >
+      <p>Your Details Added on the Top</p>
+      <span class="flex items-center">
+        <svg
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          class="w-5 h-5 mr-2 text-white"
+        >
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </span>
+    </div>
+
+    <!-- Footer Area  -->
+    <footer
+      class="
+        py-1
+        text-center text-sm
+        bg-[#203239]
+        text-[#EEEDDE]
+        w-full
+        fixed
+        bottom-0
+      "
+    >
+      &copy; All rights reserved by Hr Meheraj
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
